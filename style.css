@@ -1,26 +1,3 @@
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.store-logo {
-    height: 50px;
-    margin-right: 10px;
-}
-
-.store-name {
-    font-size: 1.5em;
-    margin-right: auto;
-}
-
 .menu {
     display: flex;
     justify-content: flex-end;
@@ -59,26 +36,12 @@ footer {
     flex-wrap: wrap;
 }
 
-.footer-logo {
-    height: 50px;
-    margin: 0 15px;
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
 }
 
-.footer-address, .footer-contact {
-    margin: 0 15px;
-}
-
-.footer-address h3, .footer-contact h3 {
-    margin-top: 0;
-}
-
-.footer-address p, .footer-contact p {
-    margin-bottom: 0;
-}
-
-.container {
-    display: flex;
-}
 
 .sidebar {
     width: 200px;
@@ -99,6 +62,30 @@ footer {
     display: block;
     padding: 5px 0;
 }
+.field{
+    width: 600px;
+
+
+}
+
+
+.button {
+    background-color: #4cafa3;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #68c7bc;
+}
+
+
+span {
+    color: red;
+}
 
 .sidebar .menu ul li a:hover {
     color: #ddd;
@@ -107,58 +94,6 @@ footer {
 .search-form {
     margin-top: 20px;
 }
-
-
-.view-order {
-    display: block;
-    margin-top: 20px;
-    color: white;
-    text-decoration: none;
-}
-
-.view-order:hover {
-    color: #ddd;
-}
-.search {
-    display: block;
-    margin-top: 20px;
-    color: white;
-    text-decoration: none;
-}
-
-.search:hover {
-    color: #ddd;
-}
-
-.content {
-    flex-grow: 1;
-    padding: 20px;
-}
-
-
-.centered-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.table {
-    width: 100%;
-    margin: 10px 0;
-
-}
-
-.table th, .table td {
-    padding: 10px;
-    border: 1px solid #555;
-    text-align: left;
-}
-
-.table th {
-    background-color: #f2f2f2;
-    color: #000;
-}
-
 .table td {
     color: #000;
 }
@@ -192,28 +127,91 @@ footer {
     border: 1px solid #555;
     color: #000;
 }
-.field{
-    width: 600px;
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
 
+.store-logo {
+    height: 50px;
+    margin-right: 10px;
+}
 
+.store-name {
+    font-size: 1.5em;
+    margin-right: auto;
 }
 
 
-.button {
-    background-color: #4cafa3;
-    color: white;
-    padding: 14px 20px;
-    margin: 10px 0;
-    cursor: pointer;
+
+.footer-logo {
+    height: 50px;
+    margin: 0 15px;
+}
+
+.footer-address, .footer-contact {
+    margin: 0 15px;
+}
+
+.footer-address h3, .footer-contact h3 {
+    margin-top: 0;
+}
+
+.footer-address p, .footer-contact p {
+    margin-bottom: 0;
+}
+
+.container {
+    display: flex;
+}
+.table {
     width: 100%;
+    margin: 10px 0;
+
 }
 
-.button:hover {
-    background-color: #68c7bc;
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #555;
+    text-align: left;
 }
 
+.table th {
+    background-color: #f2f2f2;
+    color: #000;
+}
 
-span {
-    color: red;
+.view-order {
+    display: block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.view-order:hover {
+    color: #ddd;
+}
+.search {
+    display: block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.search:hover {
+    color: #ddd;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
 }
 
