@@ -99,16 +99,7 @@ if (isset($_SESSION['user_id'])) {
                     <td><?php echo ($order['totalPrice']); ?></td>
                     <td><?php echo ($order['totalQuantity']); ?></td>
                     <td>
-                        <?php
-                        if ($isEmployee) {
-                            echo '<select name="status[' . $order['idorder'] . ']">
-                                    <option value="processing"' . ($order['status'] == 'processing' ? ' selected' : '') . '>Processing</option>
-                                    <option value="finished"' . ($order['status'] == 'finished' ? ' selected' : '') . '>Finished</option>
-                                  </select>';
-                        } else {
-                            echo ($order['status']);
-                        }
-                        ?>
+
                     </td>
                 </tr>
             <?php endforeach; ?>

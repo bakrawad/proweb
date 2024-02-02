@@ -9,7 +9,7 @@ echo 'User ID is: ' . $userId;
 if (isset($_POST["search"])) {
     if (!empty($_POST['selectedIds'])) {
 
-        $order = $pdo->prepare("INSERT INTO `order` (iduser, status) VALUES (:iduser, 'processing')");
+        $order = $pdo->prepare("INSERT INTO `order` (iduser, status) VALUES (:iduser, 'Waiting For Processing')");
         $order->execute(['iduser' => $userId]);
         $orderId = $pdo->lastInsertId();
 

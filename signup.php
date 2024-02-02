@@ -63,22 +63,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <h3>Customer Info</h3>
         <label for="name">Name:</label>
-        <input type="text" id="name" class="input" name="name" value="<?php if(isset($_POST['name'])) { echo $_POST['name']; } ?>" required><br>
+        <input type="text" id="name" class="input" name="name" value=
+        "<?php if(isset($_POST['name'])) { echo $_POST['name']; } ?>" required><br>
 
         <label for="address">Address:</label>
-        <input type="text" id="address" class="input" name="address" placeholder="Flat/House No, Street" value="<?php if(isset($_POST['address'])) { echo $_POST['address']; } ?>" required><br>
+        <input type="text" id="address" class="input" name="address" placeholder="Flat/House No, Street" value=
+        "<?php if(isset($_POST['address'])) { echo $_POST['address']; } ?>" required><br>
 
         <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" class="input" required value="<?php if(isset($_POST['dob'])) { echo $_POST['dob']; } ?>"><br>
+        <input type="date" id="dob" name="dob" class="input" required value=
+        "<?php if(isset($_POST['dob'])) { echo $_POST['dob']; } ?>"><br>
 
         <label for="id_Number">ID Number:</label>
-        <input type="text" id="id_Number" class="input" name="id_Number" required value="<?php if(isset($_POST['id_Number'])) { echo $_POST['id_Number']; } ?>"><br>
+        <input type="text" id="id_Number" class="input" name="id_Number" required value=
+        "<?php if(isset($_POST['id_Number'])) { echo $_POST['id_Number']; } ?>"><br>
 
         <label for="email">E-mail Address:</label>
-        <input type="email" id="email" name="email" class="input" required value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>"><br>
+        <input type="email" id="email" name="email" class="input" required value=
+        "<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>"><br>
 
         <label for="phone">phone:</label>
-        <input type="tel" id="phone" name="phone" class="input" required value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>"><br>
+        <input type="tel" id="phone" name="phone" class="input" required value=
+        "<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>"><br>
 
         <h3>Credit Card Details</h3>
         <label for="credit_card">Card Number:</label>

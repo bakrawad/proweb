@@ -45,13 +45,17 @@ if (isset($_POST["updateProd"])) {
 
     <h3>Product Info</h3>
     <label for="name">Name Of Product:</label>
-    <input type="text" id="name" class="input" name="name" value="<?php echo ($data['name']); ?>" readonly><br>
+    <input type="text" id="name" class="input" name="name" value=
+    "<?php echo ($data['name']); ?>" readonly><br>
 
     <label for="id">Product ID:</label>
-    <input type="text" id="id" class="input" name="id" value="<?php echo ($data['id']); ?>" readonly><br>
+    <input type="text" id="id" class="input" name="id" value=
+    "<?php echo ($data['id']); ?>" readonly><br>
+
 
     <label for="quantity">Quantity</label>
-    <input type="text" id="quantity" class="input" name="quantity" value="<?php echo ($data['quantity']); ?>"><br>
+    <input type="text" id="quantity" class="input" name="quantity" value=
+    "<?php echo ($data['quantity']); ?>"><br>
 
     <input type="submit" class="button" value="Update" name="updateProd">
 </form>
