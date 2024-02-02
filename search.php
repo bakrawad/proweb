@@ -4,26 +4,25 @@ session_start();
 include 'dbconfig.in.php';
 $prods = [];
 if (isset($_POST["search"])) {
-    $name = $_POST["name"];
+    $nameP = $_POST["name"];
     $id = $_POST["id"];
 
     $min = $_POST["min"];
     $max = $_POST["max"];
-
-    if (!empty($name)) {
-        $stmt = $pdo->prepare("SELECT * FROM product WHERE name = $name");
+    if ($nameP != "") {
+        $stmt = $pdo->prepare("SELECT * FROM product WHERE name = '$nameP'");
         $stmt->execute();
-    } elseif (!empty($id)) {
+    } elseif ($id != "") {
         $stmt = $pdo->prepare("SELECT * FROM product WHERE id = $id");
         $stmt->execute();
-    }elseif (!empty($min)) {
+    }elseif ($min != "") {
         $stmt = $pdo->prepare("SELECT * FROM product WHERE price > $min");
         $stmt->execute();
-        if (!empty($max)) {
+        if ($max != "") {
             $stmt = $pdo->prepare("SELECT * FROM product WHERE price < $max AND price > $min");
             $stmt->execute();
         }
-    }elseif (!empty($max)) {
+    }elseif ($max != "") {
         $stmt = $pdo->prepare("SELECT * FROM product WHERE price < $max");
         $stmt->execute();
     } else {

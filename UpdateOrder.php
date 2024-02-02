@@ -5,13 +5,13 @@ include 'dbconfig.in.php';
 
 $prods = [];
 if (isset($_POST["searchOr"])) {
-    $name = $_POST["name"];
+    $pname = $_POST["name"];
     $id = $_POST["id"];
 
-    if (!empty($name)) {
-        $stmt = $pdo->prepare("SELECT * FROM product WHERE name = $name");
+    if ($pname != "")  {
+        $stmt = $pdo->prepare("SELECT * FROM product WHERE name = '$pname'");
         $stmt->execute();
-    } elseif (!empty($id)) {
+    } elseif ($id != "") {
         $stmt = $pdo->prepare("SELECT * FROM product WHERE id = $id");
         $stmt->execute();
     } else {

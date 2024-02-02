@@ -95,39 +95,39 @@ if (isset($_POST["submitAccount"])) {
 
         <h3>Credit Card Details</h3>
         <label for="credit_card">Card Number:</label>
-        <input type="text" id="credit_card" name="credit_card" class="input" required  value="
-        <?php if (isset($_SESSION['credit_card'])) {
+        <input type="text" id="credit_card" name="credit_card" class="input" required
+               value="<?php if (isset($_SESSION['credit_card'])) {
                 echo $_SESSION['credit_card'];
             } ?>"><br>
 
         <label for="exp_date">Expiration Date:</label>
-        <input type="month" id="exp_date" name="exp_date" class="input" required value="
-        <?php if (isset($_SESSION['exp_date'])) {
+        <input type="month" id="exp_date" name="exp_date" class="input" required
+               value="<?php if (isset($_SESSION['exp_date'])) {
                 echo $_SESSION['exp_date'];
             } ?>"><br>
 
         <label for="name_card">Name on Card:</label>
-        <input type="text" id="name_card" name="name_card" class="input" required value="
-        <?php if (isset($_SESSION['name_card'])) {
+        <input type="text" id="name_card" name="name_card" class="input" required
+               value="<?php if (isset($_SESSION['name_card'])) {
                 echo $_SESSION['name_card'];
             } ?>"><br>
 
         <label for="bank">Bank Issued:</label>
-        <input type="text" id="bank" name="bank" class="input" required value="
-        <?php if (isset($_SESSION['bank'])) {
+        <input type="text" id="bank" name="bank" class="input" required
+               value="<?php if (isset($_SESSION['bank'])) {
                 echo $_SESSION['bank'];
             } ?>"><br>
 
         <h3>Create E-account</h3>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" class="input" required value="
-        <?php if (isset($_SESSION['username'])) {
+        <input type="text" id="username" name="username" class="input" required
+               value="<?php if (isset($_SESSION['username'])) {
                 echo $_SESSION['username'];
             } ?>"><br>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" class="input" required value="
-        <?php if (isset($_SESSION['password'])) {
+        <input type="password" id="password" name="password" class="input" required
+               value="<?php if (isset($_SESSION['password'])) {
                 echo $_SESSION['password'];
             } ?>"><br>
 
