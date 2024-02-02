@@ -20,7 +20,7 @@ include 'dbconfig.in.php';
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="Profile.php">Porfile</a></li>
-                <li><a href="#About">About US</a></li>
+                <li><a href="aboutus.php">About US</a></li>
                 <li><a href="basket.php">Shopping basket</a></li>
                 <?php
             if (isset($_SESSION['username'])) {
