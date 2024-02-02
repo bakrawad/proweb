@@ -22,7 +22,7 @@ if (isset($_SESSION['user_id'])) {
         $ordersStmt->bindValue(':userId', $userId);
     }
     $ordersStmt->execute();
-    $orders = $ordersStmt->fetchAll(PDO::FETCH_ASSOC);
+    $orders = $ordersStmt->fetchAll();
 
     foreach ($orders as $order) {
         $totalPrice = 0;
@@ -31,13 +31,13 @@ if (isset($_SESSION['user_id'])) {
 
         $productOrdersStmt = $pdo->prepare("SELECT idproduct, quantity FROM `productord` WHERE idorder = :idorder");
         $productOrdersStmt->execute(['idorder' => $order['idorder']]);
-        $productOrders = $productOrdersStmt->fetchAll(PDO::FETCH_ASSOC);
+        $productOrders = $productOrdersStmt->fetchAll();
 
         foreach ($productOrders as $productOrder) {
 
             $productStmt = $pdo->prepare("SELECT price FROM `product` WHERE id = :idproduct");
             $productStmt->execute(['idproduct' => $productOrder['idproduct']]);
-            $product = $productStmt->fetch(PDO::FETCH_ASSOC);
+            $product = $productStmt->fetch();
 
             $totalPrice += $productOrder['quantity'] * $product['price'];
             $totalQuantity += $productOrder['quantity'];
@@ -46,10 +46,8 @@ if (isset($_SESSION['user_id'])) {
         if ($isEmployee) {
             $userStmt = $pdo->prepare("SELECT username FROM users WHERE id = :iduser");
             $userStmt->execute(['iduser' => $order['iduser']]);
-            $userResult = $userStmt->fetch(PDO::FETCH_ASSOC);
+            $userResult = $userStmt->fetch();
             $userName = $userResult['username'] ;
-        } else {
-            $userName = "Self";
         }
 
         $ordersInfo[] = [
@@ -97,7 +95,7 @@ if (isset($_SESSION['user_id'])) {
                     <?php if ($isEmployee): ?>
                         <td><?php echo ($order['userName']); ?></td>
                     <?php endif; ?>
-                    <td><?php echo ($order['idorder']); ?></td>
+                    <td><a href="vieworder.php?idorder=<?php echo $order['idorder']; ?>"><?php echo ($order['idorder']); ?></a></td>
                     <td><?php echo ($order['totalPrice']); ?></td>
                     <td><?php echo ($order['totalQuantity']); ?></td>
                     <td>
