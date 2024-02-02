@@ -1,7 +1,6 @@
 <?php 
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo 'hello';
     if(isset($_POST["signup_b"])) {
 
             if(isset($_POST["name"]) && isset($_POST["address"]) && isset($_POST["dob"]) && isset($_POST["id_Number"]) && isset($_POST["email"])

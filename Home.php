@@ -81,14 +81,14 @@ include 'dbconfig.in.php';
                 <td><a href="Home.php?sortBy=name"> Name </a></td>
                 <td><a href="Home.php?sortBy=ID"> Reference ID </a></td>
                 <td><a href="Home.php?sortBy=quantity"> Quantity </a></td>
-                <td>Image </td>
+                <td>Category</td>
             </tr>
             <?php  foreach ($products as $product) {?>
             <tr>
                 <th><?php echo $product['name']; ?></th>
                 <th><?php echo $product['id']; ?></th>
                 <th><?php echo $product['quantity']; ?></th>
-                <th><?php echo $product['photo']; ?></th>
+                <th><?php echo $product['category']; ?></th>
             </tr>
             <?php } ?>
         </table>

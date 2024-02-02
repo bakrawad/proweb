@@ -3,20 +3,44 @@ include 'dbconfig.in.php';
 
 if (isset($_POST["addPro"])) {
 
+    if($_FILES["photo"]["error"] != 0) {
+        echo "error with the photo uploaded";
+    } else {
+        $stmt = $pdo->prepare("INSERT INTO product (`name`, `description`, `category`, `price`, `quantity`, `remark`, `photo`) VALUES (:name, :description, :category, :price, :quantity, :remark, :photo)");
+        $stmt->bindParam(':name', $_POST["name"]);
+        $stmt->bindParam(':description', $_POST["description"]);
+        $stmt->bindParam(':category', $_POST["category"]);
+        $stmt->bindParam(':price', $_POST["price"]);
+        $stmt->bindParam(':quantity', $_POST["quantity"]);
+        $stmt->bindParam(':remark', $_POST["remark"]);
+        $stmt->bindParam(':photo', $_POST["photo"]);
 
-    $stmt = $pdo->prepare("INSERT INTO product (`name`, `description`, `category`, `price`, `quantity`, `remark`, `photo`) VALUES (:name, :description, :category, :price, :quantity, :remark, :photo)");
+        $stmt->execute();
 
-    $stmt->bindParam(':name', $_POST["name"]);
-    $stmt->bindParam(':description', $_POST["description"]);
-    $stmt->bindParam(':category', $_POST["category"]);
-    $stmt->bindParam(':price', $_POST["price"]);
-    $stmt->bindParam(':quantity', $_POST["quantity"]);
-    $stmt->bindParam(':remark', $_POST["remark"]);
-    $stmt->bindParam(':photo', $_POST["photo"]);
+        $stmt = $pdo->prepare("SELECT MAX(id) AS maxId FROM product");
 
-    $stmt->execute();
+        $stmt->execute();
 
-    header("Location: Home.php");
+        $res = $stmt->fetch();
+
+        $maxId = $res['maxId'];
+
+        function moveFile($fileToMove, $destination, $maxId, $pdo)
+        {
+            $newFile = "images/" . $maxId . $destination;
+            move_uploaded_file($fileToMove, $newFile);
+
+            $stmt = $pdo->prepare("UPDATE product set photo	= ' $newFile ' where id = " . $maxId);
+            $stmt->execute();
+        }
+
+        $clientName = $_FILES["photo"]["name"];
+        $serverName = $_FILES["photo"]["tmp_name"];
+
+        moveFile($serverName, $clientName, $maxId, $pdo);;
+
+        header("Location: Home.php");
+    }
 }
 
 ?>
@@ -37,7 +61,7 @@ if (isset($_POST["addPro"])) {
     </header>
 </head>
 <body >
-<form action="AddProduct.php" method="post" class="form">
+<form action="AddProduct.php" method="post" class="form" enctype="multipart/form-data">
     <h2>Add Product</h2>
 
     <h3>Product Info</h3>
@@ -60,7 +84,7 @@ if (isset($_POST["addPro"])) {
     <input type="text" id="remark" name="remark" class="input" required value=""><br>
 
     <label for="Photo">Choose Photo:</label>
-    <input type="file" id="Photo" name="Photo" class="input" >
+    <input type="file" id="photo" name="photo" class="input">
 
 
     <input type="submit" class="button" value="Next Step" name="addPro">

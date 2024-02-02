@@ -3,7 +3,6 @@ global $pdo;
 session_start();
 include 'dbconfig.in.php';
 
-
 $productsDetails = [];
 
 if (isset($_GET['idorder']) && !empty($_GET['idorder'])) {

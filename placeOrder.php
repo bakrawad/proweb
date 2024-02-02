@@ -50,7 +50,7 @@ if (isset($_POST["AddToBasket"])) {
     <fieldset class="field" ">
     <?php
 
-    echo '<img src="' .'http://localhost/Ass3/'. $data["photo"]. '" alt="Student img" width="128" height="128"/>';
+    echo '<img src="' .'http://localhost/proweb/'.trim($data["photo"]).'" alt="Student img" width="128" height="128"/>';
     echo '<h2> Product ID: ' .$data["id"]. ' ,'.'Name: '.$data["name"].'</h2>';
     echo '<ul>';
     echo '<li><b>Price: </b>'.$data["price"].'</li>';

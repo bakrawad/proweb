@@ -4,14 +4,23 @@ session_start();
 include 'dbconfig.in.php';
 
 $userId = $_SESSION['user_id'];
-echo 'User ID is: ' . $userId;
 
 if (isset($_POST["search"])) {
     if (!empty($_POST['selectedIds'])) {
 
         $order = $pdo->prepare("INSERT INTO `order` (iduser, status) VALUES (:iduser, 'Waiting For Processing')");
         $order->execute(['iduser' => $userId]);
-        $orderId = $pdo->lastInsertId();
+
+        $stmt = $pdo->prepare("SELECT MAX(idorder) AS maxId FROM `order`");
+
+        $stmt->execute();
+
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+        $orderId = $result['maxId'];
+
 
         foreach ($_POST['selectedIds'] as $id) {
 

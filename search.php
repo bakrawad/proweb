@@ -76,7 +76,7 @@ if (isset($_POST["search"])) {
             <th>Price</th>
             <th>Quantity</th>
         </tr>
-        <?php foreach ($prods as $prodData): ?>
+        <?php foreach ($prods as $prodData) {?>
             <tr>
                 <td><img src="<?php echo ($prodData['photo']); ?>" alt="Product Image" width="64" height="64"/></td>
                 <td><a href="placeOrder.php/?id=<?php echo ($prodData['id']); ?>"> <?php echo ($prodData['id']); ?></a></td>
@@ -84,7 +84,7 @@ if (isset($_POST["search"])) {
                 <td><?php echo ($prodData['price']); ?></td>
                 <td><?php echo ($prodData['quantity']); ?></td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </table>
 
     <input type="submit" class="button" value="Search" name="search">
